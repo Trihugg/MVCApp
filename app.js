@@ -14,7 +14,7 @@ app.set('views', './views');
 app.set('view engine', 'hbs');
 
 var indexController = require('./index.js');
-app.use('/index', indexController);
+app.use('/', indexController);
 
 var productController = require('./product.js');
 app.use('/product', productController);
@@ -22,7 +22,7 @@ app.use('/product', productController);
 var customerController = require('./customer.js');
 app.use('/customer', customerController);
 
-var server = app.listen(4000,function() {
+var server = app.listen(process.env.PORT||4000,function() {
     //console.log("server is running ... ");
     console.log("...");
 });
