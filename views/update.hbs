@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleInsert.css">
+</head>
+<body>
+
+<form action="doUpdate" method='POST'>
+
+    <table border="1" class="styleTable1">
+        <tr>
+            <td colspan="2">Insert Product</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td class="input2"><input class="input1" type="text" name="txtName" id="" value="{{customers.name}}"></td>
+        </tr>
+        <tr>
+            <td>Location</td>
+            <td class="input2"><input class="input1" type="text" name="txtAddress" id="" value="{{customers.address}}"></td>
+        </tr>
+        <tr>
+            <td>Amount</td>
+            <td class="input2"><input class="input1" type="text" name="txtAmount" id="" value="{{customers.amount}}"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="hidden" name="id" value="{{customers._id}}">
+                <input type="submit" value="Insert Customer">
+            </td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>
+        

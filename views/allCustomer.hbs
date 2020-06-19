@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styleInsert.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>All Items In Stores</h1>
+    <table border="2" class="styleTable">
+        <tr>
+            <td></td>
+            <td></td>
+            <td>Name</td>
+            <td>Address</td>
+            <td>Amount</td>
+        </tr>
+        {{#each customers}}
+        <tr>
+            <td class="td1"><a href="/customer/delete?id={{_id}}">Delete</a></td>
+            <td class="td1"><a href="/customer/update?id={{_id}}">Update</a></td>
+            <td>{{name}}</td>
+            <td>{{address}}</td>
+            <td>{{amount}}</td>
+        </tr>
+        {{/each}}
+        <tr>
+            <td><a href="/customer/insert">Add items</a></td>
+        </tr>
+    </table>
+</body>
+</html>
