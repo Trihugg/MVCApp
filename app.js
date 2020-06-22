@@ -22,7 +22,7 @@ app.use('/product', productController);
 var customerController = require('./customer.js');
 app.use('/customer', customerController);
 
-var server = app.listen(process.env.PORT||4000,function() {
+var server = app.listen(process.env.PORT||5000,function() {
     //console.log("server is running ... ");
     console.log("...");
 });

@@ -28,9 +28,11 @@ router.post('/doUpdate', async (req, res) => {
     let add = req.body.txtAddress;
     let amou = req.body.txtAmount;
 
-    let newValues = { $set: { name: name, address : add, amount : amou } };
-
-    var ObjectID = require('mongodb').ObjectID;
+   
+    if(add.includes('vnđ'))
+    {
+        let newValues = { $set: { name: name, address : add, amount : amou }};
+        var ObjectID = require('mongodb').ObjectID;
 
     let condition = { "_id": ObjectID(id) };
 
@@ -40,6 +42,13 @@ router.post('/doUpdate', async (req, res) => {
 
     let results = await dbo.collection("customers").find({}).toArray();
     res.render('allCustomer', { customers: results });
+    }
+
+    else{
+        res.send("Can not update");
+    }
+
+    
 })
 
 router.get('/delete', async (req, res) => {
@@ -69,11 +78,18 @@ router.post('/insertCustomer', async (req, res) => {
     let nameValue = req.body.txtName;
     let addressValue = req.body.txtAddress;
     let amountValue = req.body.txtAmount;
-    let newCustomer = { name: nameValue, address: addressValue , amount : amountValue};
+    if(addressValue.includes('vnđ'))
+    {
+        let newCustomer = { name: nameValue, address: addressValue , amount : amountValue};
     await dbo.collection("customers").insertOne(newCustomer);
 
     let results = await dbo.collection("customers").find({}).toArray();
     res.render('allCustomer', { customers: results });
+    }
+
+    else{
+        res.redirect('/insert');
+    }
 })
 
 module.exports = router;
