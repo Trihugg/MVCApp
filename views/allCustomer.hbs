@@ -15,7 +15,7 @@
             <td></td>
             <td>Name</td>
             <td>Price</td>
-            <td>Amount</td>
+            <td>Image</td>
         </tr>
         {{#each customers}}
         <tr>
@@ -23,7 +23,7 @@
             <td class="td1"><a href="/customer/update?id={{_id}}">Update</a></td>
             <td>{{name}}</td>
             <td>{{address}}</td>
-            <td>{{amount}}</td>
+            <td><img src="{{amount}}" alt="" width="200px" height="auto"></td>
         </tr>
         {{/each}}
         <tr>
